@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carbon Footprint Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container-fluid p-0">
+
+    <!-- Header -->
+    <header class="site-header text-center py-4">
+      <h1 class="site-title">Carbon Footprint Calculator</h1>
+    </header>
+
+    <!-- Tabs -->
+    <div class="row g-0">
+      <div class="col-12">
+        <nav class="tabs d-flex flex-wrap align-items-center px-4 py-2">
+          <span class="tab-active me-4">General</span>
+          <a class="tab-item me-4" href="#">Home</a>
+          <a class="tab-item me-4" href="#calculator">Travel</a>
+          <a class="tab-item me-4" href="#calculator">Food</a>
+          <a class="tab-item me-4" href="#calculator">Electronic usage</a>
+          <a class="tab-item me-4" href="#calculator">Shopping</a>
+          <a class="tab-item me-4" href="#result-card">Result</a>
+          <a class="btn btn-green ms-auto" href="#">Home</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <main class="row g-0 align-items-center hero">
+      <div class="col-12 col-lg-6 order-2 order-lg-1 p-4 p-lg-5">
+        <h2 class="display-5 fw-bold">Climate change is real!!</h2>
+        <p class="fs-5 mt-3">
+          Our planet is getting warmer because of the greenhouse gases we
+          release when we drive, fly, use electricity, eat and shop. The total
+          amount we produce is called our carbon footprint, and everyone has one.
+        </p>
+        <h4 class="mt-4 fw-bold">How big is your carbon footprint?</h4>
+        <p>
+          Knowing your impact is the first step to reducing it. Answer a few
+          quick questions about your daily life and see how you can help protect
+          the Earth for the future.
+        </p>
+        <a href="#calculator" class="btn btn-primary btn-lg px-5 mt-2">Calculate</a>
+      </div>
+
+      <div class="col-12 col-lg-6 order-1 order-lg-2 p-4 text-center">
+        <img src="earth-leaf.png" class="img-fluid hero-img"
+             alt="Earth with a growing leaf, CO2 bubbles and a thermometer">
+      </div>
+    </main>
+
+    <!-- Calculator -->
+    <section id="calculator" class="row g-0 justify-content-center py-5 calc-section">
+      <div class="col-12 col-md-8 col-lg-5 px-3">
+        <div class="card calc-card shadow-sm">
+          <div class="card-header calc-header text-center">Fill the form below</div>
+          <div class="card-body">
+            <form id="calc-form" novalidate>
+              <div class="row mb-3 align-items-center">
+                <label for="name" class="col-6 col-form-label">Name</label>
+                <div class="col-6"><input type="text" class="form-control" id="name"></div>
+              </div>
+              <div class="row mb-3 align-items-center">
+                <label for="km" class="col-6 col-form-label">Car travel (km per week)</label>
+                <div class="col-6"><input type="number" min="0" class="form-control" id="km" value="0"></div>
+              </div>
+              <div class="row mb-3 align-items-center">
+                <label for="flights" class="col-6 col-form-label">Flights per year</label>
+                <div class="col-6"><input type="number" min="0" class="form-control" id="flights" value="0"></div>
+              </div>
+              <div class="row mb-3 align-items-center">
+                <label for="kwh" class="col-6 col-form-label">Electricity (kWh per month)</label>
+                <div class="col-6"><input type="number" min="0" class="form-control" id="kwh" value="0"></div>
+              </div>
+              <div class="row mb-3 align-items-center">
+                <label for="meat" class="col-6 col-form-label">Meat meals per week</label>
+                <div class="col-6"><input type="number" min="0" class="form-control" id="meat" value="0"></div>
+              </div>
+              <div class="row mb-2 align-items-center">
+                <label for="shop" class="col-6 col-form-label">Shopping spend (SAR per month)</label>
+                <div class="col-6"><input type="number" min="0" class="form-control" id="shop" value="0"></div>
+              </div>
+              <div id="error-msg" class="text-danger small mt-2" role="alert"></div>
+            </form>
+          </div>
+          <div class="card-footer text-center calc-footer">
+            <button type="button" id="calc-btn" class="btn btn-green px-4">Show my result</button>
+            <button type="button" id="reset-btn" class="btn btn-outline-secondary px-4 ms-2">Reset</button>
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div id="result-card" class="card result-card mt-4 d-none">
+          <div class="card-body text-center">
+            <h4 id="result-title" class="fw-bold"></h4>
+            <p class="display-5 fw-bold mb-0"><span id="result-total"></span> <small class="fs-5">tonnes CO₂ per year</small></p>
+            <p id="result-compare" class="mt-2"></p>
+            <ul id="result-breakdown" class="list-unstyled text-start d-inline-block mt-2"></ul>
+            <p class="text-muted small mb-0">This is a rough estimate based on average emission factors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
